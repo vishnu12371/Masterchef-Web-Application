@@ -1,0 +1,89 @@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+  
+<div class="w3-top">
+    <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
+      <a href="" class="w3-bar-item w3-button">Masterchef</a>
+      <!-- Right-sided navbar links. Hide them on small screens -->
+      <div class="w3-right w3-hide-small">
+      </div>
+    </div>
+  </div>
+
+  
+<h3>Recipe Details</h3>
+
+<div class="container">
+  <form #editForm="ngForm">
+    <label for="fname">Recipe Name</label>
+    <input type="text" ngModel="{{recipe.title}}" id="fname" name="recipeName" placeholder="Recipe name..">
+
+    <label for="lname">Recipe Description</label>
+    <input type="text" ngModel="{{recipe.desc}}" id="lname" name="desc" placeholder="Recipe description..">
+
+    <label for="country">Recipe Category</label>
+    <select id="country" ngModel="{{recipe.category}}" name="category">
+      <option value="Breakfast">Breakfast</option>
+      <option value="Appetizer">Appetizer</option>
+      <option value="Entree">Entree</option>
+      <option value="Dessert">Dessert</option>
+    </select>
+
+   <div class="time">
+    <label for="subject"  style="padding-right: 5px;" >Cooking Time</label>
+    <input type="text" ngModel="{{recipe.cookTime}}" id="lname" name="cookTime" style="height: 50px; width: 50px;" placeholder="">
+    <label for="subject"  style="padding-left:10px; padding-right: 5px;">Prep Time</label>
+    <input type="text"  ngModel= "{{recipe.prepTime}}" id="lname" name="prepTime" style="height: 50px; width: 50px;" placeholder="">
+    <label for="subject"  style="padding-left:10px; padding-right: 5px;">Servings</label>
+    <input type="text" ngModel="{{recipe.servings}}" id="lname" name="servings" style="height: 50px; width: 50px;" placeholder="">
+   </div>
+
+    <label for="subject1">Ingredients</label>
+    <textarea id="subject1" ngModel="{{recipe.ingredientRaw}}"name="ingredientRaw" placeholder=" " style="height:200px"></textarea>
+
+    <label for="subject2">Recipe Steps</label>
+    <textarea id="subject2" ngModel ="{{recipe.contentRaw}}" name="contentRaw" placeholder="Recipe Steps.." style="height:200px"></textarea>
+
+    </form>
+
+<form [formGroup]="myForm">   
+    <div class="form-group">
+        <label for="file">Video</label>
+        <input 
+            formControlName="file"
+            id="file" 
+            type="file" 
+            multiple
+            class="form-control"
+            (change)="onFileChange1($event)">
+        <div *ngIf="f.file.touched && f.file.invalid" class="alert alert-danger">
+            <div *ngIf="f.file.errors && f.file.errors.required">File is required.</div>
+        </div>
+    </div>
+ </form>
+
+<form [formGroup]="myForm">   
+    <div class="form-group">
+        <label for="file">Image</label>
+        <input 
+            formControlName="file"
+            id="file" 
+            type="file" 
+            multiple
+            class="form-control"
+            (change)="onFileChange($event)">
+        <div *ngIf="f.file.touched && f.file.invalid" class="alert alert-danger">
+            <div *ngIf="f.file.errors && f.file.errors.required">File is required.</div>
+        </div>
+    </div>
+ </form>
+
+ <input  type="submit" value="Submit" (click)="onUpdateRecipe(editForm.value)">
+
+</div>
+
+

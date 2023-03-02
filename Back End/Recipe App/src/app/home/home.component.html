@@ -1,0 +1,102 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.22.0/themes/prism.css" />
+ <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #ffffff;">
+    <a class="navbar-brand" href="#" routerLink ="/home" img="appicon.png">MasterChef</a>
+  <a class="navbar-nav ml-right">
+    <li class="nav-item">
+      <a class="nav-link" href="#" routerLink="/login">Login </a>
+    </li>
+  </a>
+  <a class="navbar-nav ml-auto">
+      <li class="nav-item"><a class="nav-link" href="#">Contact</a>
+      </li>
+    </a>
+</nav>
+
+
+<div class="my-container">
+        <div class="input-group">
+            <input  [(ngModel)]="search"type="text" placeholder="Find a recipe" name="search" class="form-control input-lg">
+          <div class="input-group-btn">
+                <button  class="btn btn-lg btn-primary" routerLink="/recipesearch" (click) = "onRoute('2',search)" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+          </div> 
+        </div>
+        <div class="row">
+                <div class="user-item">
+                    <img src="https://img.icons8.com/external-vitaliy-gorbachev-lineal-color-vitaly-gorbachev//000000/external-breakfast-mother-day-vitaliy-gorbachev-lineal-color-vitaly-gorbachev.png" class="img-circle img-responsive img-user" (click) = "onRoute('4','breakfast')" alt="" href="#">
+                    <div>
+                        <small>Breakfast Recipe</small>
+                    </div>
+                </div>
+                <div class="user-item">
+                    <img src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/512/000000/external-lunch-foodies-flaticons-lineal-color-flat-icons-2.png" class="img-circle img-responsive img-user" alt=""  (click) = "onRoute('4','appetizer')"href="#">
+                    <div>
+                        <small>Appetizer Recipe</small>
+                 </div>
+               </div>
+               <div class="user-item">
+                <img src="https://img.icons8.com/external-xnimrodx-lineal-color-xnimrodx/512/000000/external-dinner-wedding-xnimrodx-lineal-color-xnimrodx.png" class="img-circle img-responsive img-user" alt="" (click) = "onRoute('4','entree')" href="#">
+                <div>
+                    <small>Entree Recipe</small>
+                </div>
+            </div>
+            <div class="user-item">
+                <img src="https://img.icons8.com/color/480/000000/dessert.png" class="img-circle img-responsive img-user" alt="" (click) = "onRoute('4','desert')" href="#">
+                <div>
+                    <small>Dessert Recipe</small>
+                </div>
+            </div>
+        </div>  
+  </div>
+
+<div class="recipecontainer">
+  <div class = "row">
+<div *ngFor="let recipe of recipes;let i = index " class="col-md-4" >  
+  <div class="card user-card">
+      <div class="card-header">
+          <h3 style="color: rgb(237, 20, 20);"  >{{recipe?.title}}</h3>
+      </div>
+      <div class="card-block">
+          <div class="user-image">
+              <img src="{{recipe?.imageUrl}}" alt=""class="img-radius" alt="User-Profile-Image">
+          </div>
+          <h6 class="f-w-600 m-t-25 m-b-10">by {{recipe?.author}}</h6>
+          <ngbd-rating-decimal></ngbd-rating-decimal>
+          <hr>
+          <p class="m-t-15 text-muted">{{recipe?.desc}}</p>
+          <hr>
+          <div class="row justify-content-center user-social-link">
+              <button style=" background-color: Transparent; background-repeat:no-repeat; border: none;" (click)="onclickid(recipe.id)"  ><i class="fa fa-eye"></i></button>
+          </div>
+      </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+
+    <router-outlet></router-outlet>
+  
+
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

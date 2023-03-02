@@ -1,0 +1,64 @@
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #ffffff;">
+    <a class="navbar-brand" href="#" routerLink ="/home" img="appicon.png">MasterChef</a>
+    <a class="navbar-nav ml-auto">
+        <li class="nav-item"><a class="nav-link" href="#">Logout</a>
+        </li>
+      </a>
+</nav>
+
+<section class="jumbotron text-center">
+  <div class="container">
+    <h1 class="jumbotron-heading">Recipe Manager Application</h1>
+    <p class="lead text-muted">Dashboard for Recipe Application</p>
+    <p>
+    </p>
+  </div>
+</section>
+
+<section>
+    <h2 >Welcome {{user}}</h2>
+</section>
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha512-Zq2BOxyhvnRFXu0+WE6ojpZLOU2jdnqbrM1hmVdGzyeCa1DgM3X5Q4A/Is9xA1IkbUeDd7755dNNI/PzSf2Pew==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<section class="section">
+    <div class="container">
+        <div class="port portfolio-masonry mt-4">
+            <div class="portfolioContainer row photo">
+                <div class="col-lg-4 p-4 ">
+                    <div class="item-box">
+                        <div class="wrap">
+                            <a href="#" routerLink ="/useRecipe/{{user}}" class="tile tile-large">
+                              <span>My Recipes</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 p-4 ">
+                    <div class="item-box">
+                        <div class="wrap">
+                            <a href="#" routerLink ="/addrecipe/{{user}}" class="tile tile-large">
+                              <span>Add Recipes</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 p-4 ">
+                    <div class="item-box">
+                        <div class="wrap">
+                            <a href="#" routerLink ="/recipesearch/100/{{user}}" class="tile tile-large">
+                              <span>Search Top Rated Recipe</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<router-outlet></router-outlet>

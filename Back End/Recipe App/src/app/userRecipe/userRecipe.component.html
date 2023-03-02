@@ -1,0 +1,55 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.22.0/themes/prism.css" />
+ <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #ffffff;">
+    <a class="navbar-brand" href="#" routerLink ="/home" img="appicon.png">MasterChef</a>
+  <a class="navbar-nav ml-right">
+  </a>
+</nav>
+
+<div class="recipecontainer">
+    <div class = "row">
+  <div *ngFor="let recipe of this.recipes;let i = index " class="col-md-4" >  
+    <div class="card user-card">
+        <div class="card-header">
+            <h3 style="color: rgb(237, 20, 20);"  >{{recipe?.title}}</h3>
+        </div>
+        <div class="card-block">
+            <div class="user-image">
+                <img src="{{recipe?.imageUrl}}" alt=""class="img-radius" alt="User-Profile-Image">
+            </div>
+            <h6 class="f-w-600 m-t-25 m-b-10">by {{recipe?.author}} rating : {{recipe?.avgRating}}</h6>
+            <hr>
+
+        
+              <input
+                class="rating"
+                max="5"
+                readonly
+                step="0.01"
+                style="--fill:rgb(255, 251, 0);--value:{{recipe?.avgRating}}"
+                type="range">
+      
+
+            <hr>
+            <p class="m-t-15 text-muted" style="color: red;">{{recipe?.desc}}</p>
+            <hr>
+
+            <div id="outer">
+              <div class="inner"> <button style=" background-color: Transparent; background-repeat:no-repeat; border: none; margin-right: 40px; " (click)="onclickdelid(recipe.id)"  ><i class="fa fa-trash fa--4" aria-hidden="true"></i></button></div>
+              <div class="inner"> <button style=" background-color: Transparent; background-repeat:no-repeat; border: none; margin-right: 40px;" (click)="onclickeditid(recipe.id)"  ><i class="fa fa-pencil" aria-hidden="true"></i></button></div>
+              <div class="inner"> <button style=" background-color: Transparent; background-repeat:no-repeat; border: none;" (click)="onclickid(recipe.id)"  ><i class="fa fa-eye fa-3" aria-hidden="true"></i></button></div>
+            </div>
+        </div>
+      </div>
+      </div>
+      </div>
+      </div>
+
+
+  
+  
+
+

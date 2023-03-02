@@ -1,0 +1,127 @@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+  
+<div class="w3-top">
+    <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
+      <a href="" class="w3-bar-item w3-button">Masterchef</a>
+      <!-- Right-sided navbar links. Hide them on small screens -->
+      <div class="w3-right w3-hide-small">
+      </div>
+    </div>
+  </div>
+
+  
+<h3>Recipe Details</h3>
+
+
+<div class="container">
+
+
+
+  <form #addform = "ngForm" (ngSubmit)="submit(); addform.reset();">
+
+    <label for="name">Recipe Name</label>
+    
+    <input type="text" class="form-control" id="name" required maxlength="30" minlength="2"
+           [(ngModel)]="title" name="name" #nameControl="ngModel" placeholder="Recipe name.. "  >
+
+       <div *ngIf="nameControl.invalid && (nameControl.dirty || nameControl.touched)"
+           class="alert alert-danger">
+         <div *ngIf="nameControl.errors.required">
+           Name is required.
+         </div>
+         <div *ngIf="nameControl.errors.minlength">
+           Name cannot be more than 30 characters long.
+         </div>
+       </div>
+       
+
+    <label for="desc">Recipe Description</label>
+    
+    <input type="text" class="form-control" id="desc" required maxlength="150" 
+           [(ngModel)]="desc" name="desc" #descControl="ngModel" placeholder="Recipe description.." >
+
+           <div *ngIf="descControl.invalid && (descControl.dirty || descControl.touched)"
+           class="alert alert-danger">
+         <div *ngIf="descControl.errors.required">
+           Description is Required
+         </div>
+         <div *ngIf="descControl.errors.minlength">
+           Description cannot be more than 150 characters long.
+         </div>
+       </div>
+
+    <label for="category">Recipe Category</label>
+    <select style = "padding-bottom: 10px;" form-control id="category"  required [(ngModel)]="category" 
+             name="category" #categControl="ngModel" >
+      <option value="Breakfast">Breakfast</option>
+      <option value="Appetizer">Appetizer</option>
+      <option value="Entree">Entree</option>
+      <option value="Dessert">Dessert</option>
+    </select>
+
+       <div *ngIf="categControl.invalid && (categControl.dirty || categControl.touched)"
+        class="alert alert-danger">
+        <div *ngIf="categControl.errors.required">
+           Category is Required
+        </div>
+     </div>
+
+   <div class="time">
+    <label for="subject"  style="padding-right: 5px;" >Cooking Time</label>
+    <input type="text" [(ngModel)]="cooktime" id="lname" name="lastname1" style="height: 50px; width: 50px;" placeholder="">
+    <label for="subject"  style="padding-left:10px; padding-right: 5px;">Prep Time</label>
+    <input type="text"  [(ngModel)]="preptime" id="lname" name="lastname2" style="height: 50px; width: 50px;" placeholder="">
+    <label for="subject"  style="padding-left:10px; padding-right: 5px;">Servings</label>
+    <input type="text" [(ngModel)]="servings" id="lname" name="lastname3" style="height: 50px; width: 50px;" placeholder="">
+   </div>
+
+    <label for="subject1">Ingredients</label>
+    <textarea id="subject1" [(ngModel)]="this.rawingredient" name="subject1" placeholder=" " style="height:200px"></textarea>
+
+    <label for="subject2">Recipe Steps</label>
+    <textarea id="subject2" [(ngModel)]="this.rawcontent" name="subject2" placeholder="Recipe Steps.." style="height:200px"></textarea>
+
+<form [formGroup]="myForm">   
+    <div class="form-group">
+        <label for="file">Video</label>
+        <input 
+            formControlName="file"
+            id="file" 
+            type="file" 
+            multiple
+            class="form-control"
+            (change)="onFileChange1($event)">
+        <div *ngIf="f.file.touched && f.file.invalid" class="alert alert-danger">
+            <div *ngIf="f.file.errors && f.file.errors.required">File is required.</div>
+        </div>
+    </div>
+ </form>
+
+<form [formGroup]="myForm">   
+    <div class="form-group">
+        <label for="file">Image</label>
+        <input 
+            formControlName="file"
+            id="file" 
+            type="file" 
+            multiple
+            class="form-control"
+            (change)="onFileChange($event)">
+        <div *ngIf="f.file.touched && f.file.invalid" class="alert alert-danger">
+            <div *ngIf="f.file.errors && f.file.errors.required">File is required.</div>
+        </div>
+    </div>
+    
+ </form>
+ <input  type="submit" value="Submit">
+  </form>
+  
+</div>
+
+
+
